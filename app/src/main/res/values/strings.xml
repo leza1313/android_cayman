@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">pruebapi</string>
+    <string-array name="tipos_array">
+        <item>guitarra</item>
+        <item>bajo</item>
+        <item>artista</item>
+    </string-array>
+</resources>

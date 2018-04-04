@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.leza_.pruebapi.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="344dp"
+        android:layout_height="495dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="20dp">
+
+        <Button
+            android:id="@+id/guitarras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lista"
+            android:onClick="getListTipo"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id="@+id/etNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Tipo"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:hint="Nombre" />
+
+        <Button
+            android:id="@+id/buscar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/guitarras"
+            android:layout_below="@+id/etNombre"
+            android:layout_marginTop="10dp"
+            android:onClick="getReposClicked"
+            android:text="Buscar" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buscar"
+            android:layout_centerHorizontal="true"
+            android:text="TextView" />
+
+        <Spinner
+            android:id="@+id/Tipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/guitarras"
+            android:layout_alignStart="@+id/etNombre"
+            android:layout_alignEnd="@+id/etNombre" />
+
+        <Button
+            android:id="@+id/STOP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop"
+            android:onClick="stop"
+            android:layout_below="@+id/result"
+            android:layout_alignStart="@+id/buscar" />
+
+        <Button
+            android:id="@+id/COPY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Copy"
+            android:onClick="copy"
+            android:layout_below="@+id/STOP"
+            android:layout_alignStart="@+id/buscar" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
