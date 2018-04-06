@@ -5,4 +5,5 @@
         <item>bajo</item>
         <item>artista</item>
     </string-array>
+    <string name="title_activity_credenciales">Credenciales</string>
 </resources>
