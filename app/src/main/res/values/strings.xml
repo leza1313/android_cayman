@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">android_cayman</string>
+    <string-array name="tipos_array">
+        <item>guitarra</item>
+        <item>bajo</item>
+        <item>artista</item>
+    </string-array>
+    <string name="title_activity_credenciales">Credenciales</string>
+</resources>
