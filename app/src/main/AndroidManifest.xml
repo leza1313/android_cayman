@@ -19,7 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Credenciales" />
-        <activity android:name=".Repetier"></activity>
+        <activity android:name=".Repetier" />
+        <activity android:name=".listviewPedidos" />
+        <activity android:name=".info_pedido"></activity>
     </application>
 
 </manifest>

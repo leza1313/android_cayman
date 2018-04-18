@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".info_pedido">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Info Pedido"
+            android:textColor="@android:color/black"
+            android:textSize="50dp" />
+
+        <TextView
+            android:id="@+id/tvnumero_serie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/titulo"
+            android:layout_below="@id/titulo"
+            android:text="Numero Serie: "
+            android:textColor="@android:color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/numero_serie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="20dp"
+            android:layout_below="@id/titulo"
+            android:layout_toRightOf="@+id/tvnumero_serie"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/telefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_alignStart="@id/tvtelefono"
+            android:layout_below="@+id/tvtelefono"/>
+
+        <TextView
+            android:id="@+id/tvtelefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/numero_serie"
+            android:layout_below="@+id/numero_serie"
+            android:layout_marginTop="10dp"
+            android:text="Telefono:"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@id/tvnombre"
+            android:layout_alignStart="@id/titulo"/>
+
+        <TextView
+            android:id="@+id/tvnombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/titulo"
+            android:layout_below="@id/numero_serie"
+            android:layout_marginTop="10dp"
+            android:text="Nombre:"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/tvdireccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/titulo"
+            android:layout_below="@id/nombre"
+            android:layout_marginTop="10dp"
+            android:text="Direccion:"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/direccion"
+            android:layout_width="144dp"
+            android:layout_height="68dp"
+            android:layout_alignStart="@id/titulo"
+            android:layout_below="@id/tvdireccion"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/tvmodelo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/titulo"
+            android:layout_below="@id/direccion"
+            android:layout_marginTop="10dp"
+            android:text="Modelo: "
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/modelo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@id/tvmodelo"
+            android:layout_alignStart="@id/titulo"/>
+
+        <TextView
+            android:id="@+id/tvpastillas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/titulo"
+            android:layout_below="@id/modelo"
+            android:layout_marginTop="10dp"
+            android:text="Pastillas:"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/pastillas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@id/tvpastillas"
+            android:layout_alignStart="@id/titulo"/>
+
+        <TextView
+            android:id="@+id/tvelectronica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/titulo"
+            android:layout_below="@id/pastillas"
+            android:layout_marginTop="10dp"
+            android:text="Electronica: "
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/electronica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@id/tvelectronica"
+            android:layout_alignStart="@id/titulo"/>
+
+        <TextView
+            android:id="@+id/tvprecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/titulo"
+            android:layout_below="@id/electronica"
+            android:layout_marginTop="10dp"
+            android:text="Precio: "
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/precio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@id/tvprecio"
+            android:layout_alignStart="@id/titulo"/>
+
+        <TextView
+            android:id="@+id/tvfactura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/titulo"
+            android:layout_below="@id/precio"
+            android:layout_marginTop="10dp"
+            android:text="Factura: "
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/factura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@id/tvfactura"
+            android:layout_alignStart="@id/titulo"/>
+
+        <TextView
+            android:id="@+id/tvemail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/tvtelefono"
+            android:layout_below="@id/telefono"
+            android:layout_marginTop="10dp"
+            android:text="Email: "
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@id/tvemail"
+            android:layout_alignStart="@id/tvtelefono"/>
+
+        <TextView
+            android:id="@+id/tvacabado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/tvtelefono"
+            android:layout_below="@id/email"
+            android:layout_marginTop="10dp"
+            android:text="Acabado:"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/acabado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@id/tvacabado"
+            android:layout_alignStart="@id/tvtelefono"/>
+
+        <TextView
+            android:id="@+id/tvpuente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/tvtelefono"
+            android:layout_below="@id/acabado"
+            android:layout_marginTop="10dp"
+            android:text="Puente: "
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/puente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@id/tvpuente"
+            android:layout_alignStart="@id/tvtelefono"/>
+
+        <TextView
+            android:id="@+id/tvclavijero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/tvtelefono"
+            android:layout_below="@id/puente"
+            android:layout_marginTop="10dp"
+            android:text="Clavijero: "
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/clavijero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@id/tvclavijero"
+            android:layout_alignStart="@id/tvtelefono"/>
+
+        <TextView
+            android:id="@+id/tvfecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/tvtelefono"
+            android:layout_below="@id/clavijero"
+            android:layout_marginTop="10dp"
+            android:text="Fecha: "
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@id/tvfecha"
+            android:layout_alignStart="@id/tvtelefono"/>
+
+        <TextView
+            android:id="@+id/tvpago_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/tvtelefono"
+            android:layout_below="@id/fecha"
+            android:layout_marginTop="10dp"
+            android:text="Pago_id: "
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/pago_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@id/tvpago_id"
+            android:layout_alignStart="@id/tvtelefono"/>
+
+        <Button
+            android:id="@+id/volverPedidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/factura"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:text="Volver"
+            android:onClick="volverPedidos"/>
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

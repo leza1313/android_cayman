@@ -8,4 +8,8 @@
         android:id="@+id/repetier"
         android:title="Repetier"
         android:onClick="repetier"/>
+    <item
+        android:id="@+id/pedidos"
+        android:title="Pedidos"
+        android:onClick="pedidos"/>
 </menu>

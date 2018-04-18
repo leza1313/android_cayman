@@ -4,6 +4,7 @@
         <item>guitarra</item>
         <item>bajo</item>
         <item>artista</item>
+        <item>pedido</item>
     </string-array>
     <string name="title_activity_credenciales">Credenciales</string>
 </resources>

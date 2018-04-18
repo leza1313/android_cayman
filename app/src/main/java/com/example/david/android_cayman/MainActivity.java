@@ -76,6 +76,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Intent intent = new Intent(this, Repetier.class);
         startActivity(intent);
     }
+    public void pedidos(MenuItem item){
+        Intent intent = new Intent(this, listviewPedidos.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -159,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 headers.put("Authorization",miToken);
                 return headers;
             }
-        };;
+        };
         requestQueue.add(jsonObjectRequest);
     }
 
