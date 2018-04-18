@@ -12,13 +12,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -41,6 +49,7 @@ public class listviewPedidos extends AppCompatActivity {
 
     public ListView lista;
     SharedPreferences sharedPreferences;
+    EditText etnum_serie;
     String miToken;
     String User;
     String Password;
@@ -98,6 +107,8 @@ public class listviewPedidos extends AppCompatActivity {
 
         sharedPreferences=getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
+        this.etnum_serie = (EditText) findViewById(R.id.num_serie);
+        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.loading);
         this.miToken = sharedPreferences.getString(Value3,"");
         this.User = sharedPreferences.getString(Value2,"");
         this.Password = sharedPreferences.getString(Value1,"");
@@ -110,6 +121,7 @@ public class listviewPedidos extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+                            progressBar.setVisibility(View.INVISIBLE);
                             Pedido auxrow = new Pedido();
                             JSONArray jarray = response.getJSONArray("Pedidos");
                             JSONObject obj = jarray.getJSONObject(0);
@@ -144,8 +156,14 @@ public class listviewPedidos extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        progressBar.setVisibility(View.INVISIBLE);
                         // If there a HTTP error then add a note to our repo list.
-                        System.out.println("Error en http request");
+                        Toast.makeText(listviewPedidos.this,"Error en http request, generando token...",Toast.LENGTH_LONG).show();
+                        try {
+                            getToken();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }){
                     @Override
@@ -206,6 +224,8 @@ public class listviewPedidos extends AppCompatActivity {
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putString(Value3, miToken);
                             editor.commit();
+                            Toast.makeText(listviewPedidos.this,"Token generado",Toast.LENGTH_LONG).show();
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -223,5 +243,79 @@ public class listviewPedidos extends AppCompatActivity {
                 });
         requestQueue.add(jsonObjReq);
 
+    }
+    public void buscarpedido(View v) {
+        busqueda(etnum_serie.getText().toString());
+    }
+    private void busqueda(final String num_serie) {
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
+                "https://leza1313.hopto.org/api/pedido/"+num_serie,null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        //TODO Parse JSON, response
+                        try {
+                            Intent intent = new Intent(getBaseContext(), info_pedido.class);
+                            JSONObject obj = response;
+                            intent.putExtra("precio", obj.getString("precio"));
+                            intent.putExtra("acabado", obj.getString("acabado"));
+                            intent.putExtra("pastillas", obj.getString("pastillas"));
+                            intent.putExtra("puente", obj.getString("puente"));
+                            intent.putExtra("electronica", obj.getString("electronica"));
+                            intent.putExtra("clavijero", obj.getString("clavijero"));
+                            intent.putExtra("factura", obj.getString("factura"));
+                            intent.putExtra("direccion", obj.getString("direccion"));
+                            intent.putExtra("nombre", obj.getString("nombre"));
+                            intent.putExtra("email", obj.getString("email"));
+                            intent.putExtra("observaciones", obj.getString("observaciones"));
+                            intent.putExtra("fecha", obj.getString("fecha"));
+                            intent.putExtra("pago_id", obj.getString("pago_id"));
+                            intent.putExtra("numero_serie", obj.getString("numero_serie"));
+                            intent.putExtra("modelo", obj.getString("modelo"));
+                            intent.putExtra("telefono", obj.getString("telefono"));
+                            startActivity(intent);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println(error.networkResponse.statusCode);
+                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                    Toast.makeText(listviewPedidos.this,
+                            "No hay conexion con el servidor",
+                            Toast.LENGTH_LONG).show();
+                } else if (error.networkResponse.statusCode==401) {
+                    Toast.makeText(listviewPedidos.this,
+                            "Necesita autorización para esta petición",
+                            Toast.LENGTH_LONG).show();
+                } else if (error.networkResponse.statusCode==403) {
+                    Toast.makeText(listviewPedidos.this,
+                            "Token de autorización caducado",
+                            Toast.LENGTH_LONG).show();
+                } else if (error.networkResponse.statusCode==404) {
+                    Toast.makeText(listviewPedidos.this,
+                            "El pedido de la guitarra "+num_serie+" no existe",
+                            Toast.LENGTH_LONG).show();
+                } else if (error.networkResponse.statusCode==500) {
+                    Toast.makeText(listviewPedidos.this,
+                            "Error en el servidor, contacte con el administrador",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+        ){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization",miToken);
+                return headers;
+            }
+        };
+        requestQueue.add(jsonObjectRequest);
     }
 }
