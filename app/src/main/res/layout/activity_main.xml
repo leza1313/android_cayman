@@ -1,60 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/guitarras"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lista"
-            android:onClick="getListTipo"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-        <EditText
-            android:id="@+id/etNombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Tipo"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:hint="Nombre" />
-
-        <Button
-            android:id="@+id/buscar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/guitarras"
-            android:layout_below="@+id/etNombre"
-            android:layout_marginTop="10dp"
-            android:onClick="getReposClicked"
-            android:text="Buscar" />
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
-            android:id="@+id/result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/buscar"
-            android:layout_centerHorizontal="true"
-            android:text="TextView" />
-
-        <Spinner
-            android:id="@+id/Tipo"
+            android:id="@+id/titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/guitarras"
-            android:layout_alignStart="@+id/etNombre"
-            android:layout_alignEnd="@+id/etNombre" />
+            android:text="Pedidos"
+            android:textAlignment="center"
+            android:textColor="#036664"
+            android:textSize="50dp" />
 
+        <RelativeLayout
+            android:id="@+id/barrabuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titulo"
+            android:layout_centerHorizontal="true">
+
+            <EditText
+                android:id="@+id/num_serie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Numero de serie" />
+
+            <Button
+                android:id="@+id/btnbuscar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/num_serie"
+                android:onClick="buscarpedido"
+                android:text="Buscar" />
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/loading"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/barrabuscar" />
+
+        <Button
+            android:id="@+id/nuevo_pedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="anadirPedido"
+            android:text="Añadir" />
 
     </RelativeLayout>
 

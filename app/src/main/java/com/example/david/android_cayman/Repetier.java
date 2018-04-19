@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -46,14 +47,14 @@ public class Repetier extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        //TODO Parse JSON, response
-                        System.out.println("Stop");
+                        Toast.makeText(Repetier.this,"Trabajo parado",Toast.LENGTH_LONG).show();
+
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // If there a HTTP error then add a note to our repo list.
-                System.out.println("Error while calling Repetier DEMO");
+                Toast.makeText(Repetier.this,"Error en la peticion de parada",Toast.LENGTH_LONG).show();
+
             }
         }
         );
@@ -67,13 +68,14 @@ public class Repetier extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         //TODO Parse JSON, response
-                        System.out.println("Copy - Start");
+                        Toast.makeText(Repetier.this,"Trabajo empezado",Toast.LENGTH_LONG).show();
+
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // If there a HTTP error then add a note to our repo list.
-                System.out.println("Error while calling Repetier DEMO");
+                Toast.makeText(Repetier.this,"Error en la peticion de comienzo del trabajo",Toast.LENGTH_LONG).show();
+
             }
         }
         );
