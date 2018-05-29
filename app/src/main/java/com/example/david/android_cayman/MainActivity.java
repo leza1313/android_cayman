@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import android.content.SharedPreferences;
@@ -103,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
         public String telefono;
         public String numero_serie;
         public String modelo;
+        public String fecha_salida;
     }
 
     mAdapter adaptador = null;
@@ -124,6 +126,9 @@ public class MainActivity extends AppCompatActivity {
             ImageView img = row.findViewById(R.id.img);
 
             Pedido mpedido = myPedidos.get(position);
+            if (mpedido.fecha_salida.equals("None")==false) {
+                row.setBackgroundResource(R.color.colorSuccess);
+            }
 
             name.setText(mpedido.nombre);
             name2.setText(mpedido.numero_serie);
@@ -192,6 +197,9 @@ public class MainActivity extends AppCompatActivity {
                                 auxrow.numero_serie = obj.getString("numero_serie");
                                 auxrow.modelo = obj.getString("modelo");
                                 auxrow.telefono = obj.getString("telefono");
+                                if (obj.has("fecha_salida")){
+                                    auxrow.fecha_salida = obj.getString("fecha_salida");
+                                }
                                 myPedidos.add(auxrow);
                             }
                             adaptador = new mAdapter();

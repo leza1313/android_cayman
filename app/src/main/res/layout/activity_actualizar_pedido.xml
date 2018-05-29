@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -288,13 +288,33 @@
             android:layout_below="@id/tvfecha"
             android:layout_alignStart="@id/tvtelefono"/>
 
+        <TextView
+            android:id="@+id/tvfecha_salida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/titulo"
+            android:layout_below="@id/precio"
+            android:layout_marginTop="0dp"
+            android:text="Fecha Salida: "
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:textSize="14dp"
+            android:id="@+id/fecha_salida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="YYYY-MM-DD HH:MM:ss"
+            android:layout_below="@id/tvfecha_salida"
+            android:layout_alignStart="@id/titulo"/>
+
 
         <Button
             android:id="@+id/volverPedidos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/numero_serie"
-            android:layout_below="@+id/factura"
+            android:layout_below="@+id/fecha_salida"
+            android:layout_marginTop="10dp"
             android:onClick="volverPedidos"
             android:text="Volver" />
 
@@ -303,9 +323,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/titulo"
-            android:layout_below="@+id/factura"
+            android:layout_below="@+id/fecha_salida"
+            android:layout_marginTop="10dp"
             android:onClick="actualizar"
             android:text="Actualizar" />
 
     </RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+</ScrollView>

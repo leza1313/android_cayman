@@ -43,6 +43,7 @@ public class actualizarPedido extends AppCompatActivity {
     EditText fecha;//findViewById(R.id.fecha);
     EditText factura;//findViewById(R.id.factura);
     EditText pago_id;//findViewById(R.id.pago_id);
+    EditText fecha_salida;//findViewById(R.id.pago_id);
 
     RequestQueue requestQueue;  // This is our requests queue to process our HTTP requests.
     String miToken;
@@ -89,6 +90,7 @@ public class actualizarPedido extends AppCompatActivity {
         precio = findViewById(R.id.precio);
         fecha = findViewById(R.id.fecha);
         factura = findViewById(R.id.factura);
+        fecha_salida = findViewById(R.id.fecha_salida);
 
         numero_serie.setText(snumero_serie);
         nombre.setText(snombre);
@@ -126,6 +128,9 @@ public class actualizarPedido extends AppCompatActivity {
             postparams.put("fecha",fecha.getText().toString());
             postparams.put("modelo",modelo.getText().toString());
             postparams.put("telefono",telefono.getText().toString());
+            if (fecha_salida.getText().toString().equals("")==false){
+                postparams.put("fecha_salida", fecha_salida.getText().toString());
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
